@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Counter App</title>
+<style>
+    body {
+    background-image: url(photo-1613828330596-982c62f72e9a.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+
+    #counter {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    #even-odd {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+
+    #counter-container {
+        margin-bottom: 20px;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 1rem;
+        cursor: pointer;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    #history {
+        display: flex;
+        justify-content: center;
+    }
+
+    #history ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    #history li {
+        margin: 5px;
+    }
+
+    .even {
+        color: green;
+    }
+
+    .odd {
+        color: red;
+    }
+</style>
+</head>
+<body>
+<div id="counter-container">
+    <div id="counter">0</div>
+    <div id="even-odd">Even</div>
+</div>
+<button id="increment">Increment</button>
+<button id="decrement">Decrement</button>
+<button id="reset">Reset</button>
+<div id="history">
+    <ul></ul>
+</div>
+<script>
+    let counter = 0;
+    const counterElement = document.getElementById('counter');
+    const evenOddElement = document.getElementById('even-odd');
+    const historyList = document.querySelector('#history ul');
+
+    function updateCounter() {
+        counterElement.textContent = counter;
+        evenOddElement.textContent = counter % 2 === 0 ? 'Even' : 'Odd';
+        evenOddElement.className = counter % 2 === 0 ? 'even' : 'odd';
+        updateHistory();
+    }
+
+    function updateHistory() {
+        const listItem = document.createElement('li');
+        listItem.textContent = counter;
+        historyList.appendChild(listItem);
+    }
+
+    document.getElementById('increment').addEventListener('click', function() {
+        counter++;
+        updateCounter();
+    });
+
+    document.getElementById('decrement').addEventListener('click', function() {
+        if (counter > 0) {
+            counter--;
+            updateCounter();
+        }
+    });
+
+    document.getElementById('reset').addEventListener('click', function() {
+        counter = 0;
+        updateCounter();
+    });
+</script>
+</body>
+</html>

@@ -17,7 +17,7 @@
 //     total_expense.innerText = expense
 //     total_saving.innerText = savings
 // }
-// function salary() {
+// function salaryFunction() {
 //     expense = expense_html.value + salary;
 //     savings = salary - expense
 //     expense.innertext = expense;
@@ -27,22 +27,22 @@
 
 var amoumt_js=document.getElementById("amount");
 var income_js=document.getElementById("income");
-var expense_js=document.getElementById("expense");
+var expense_js=document.getElementById("calExpense");
 var totalIncome =150000;
 var expense=0;
 var saving=0;
-var tExpense_js=document.getElementById("total_expense");
-var tSaving_js=document.getElementById("total_saving");
+var totalExpense=document.getElementById("totalExpense");
+var totalSaving=document.getElementById("totalSaving");
 
-function expense() {
-    expense=expense_js.value+expense
+function calExpense() {
+    amoumt=amoumt_js.value+expense
     totalIncome=saving-expense;
-    tExpense_js.innerText=expense;
-    tSaving_js.innerText=saving;
+    totalExpense.innerText=expense;
+    totalSaving.innerText=saving;
     
 }
-function saving(){
-    expense=expense_js.value+expense
+function income(){
+    amoumt=amoumt_js.value+expense
     totalIncome=saving-expense;
     expense.innerText=expense;
 }
